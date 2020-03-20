@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+    <head>
+        <title>HomePage</title>
+        <link rel ="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    </head>
+
+    <body>
+        <h1>Veuillez entrer:</h1> 
+
+            <p>votre nom
+            <form action="." method="POST">
+            <input type="text" name="nom"></p>
+            
+            <p>votre prénom
+            <form action="." method="POST">
+            <input type="text" name="prenom"></p>
+            
+            <p>Veuillez entrer votre age
+           <form action="." method="POST">
+            <input type="text" name="age"></p>
+            
+            <p>Etes vous un homme ou une femme ?
+            <form action="." method="POST">
+            <input type="text" name="sexe">
+            <button type="submit">OK</button></p>
+        </form>
+    </body>
+</html>
