@@ -8,15 +8,15 @@ def home():
 
 @app.route('/', methods=['POST'])
 def text_box():
-    nom = request.form['nom']
+    nom = request.form['nom'].upper()
     prenom = request.form['prenom']
-    taille = request.form['taille']
+    age = request.form['age']
     sexe = request.form['sexe']
-    processed_nom = nom.upper()
-    processed_prenom = prenom.upper()
     
     
-    return render_template("bienvenue.html", message=processed_text)
+    
+    return render_template("bienvenue.html", 
+    prenom=prenom, nom=nom, age=age, sexe=sexe)
 
 if __name__ == '__main__':
     app.run()
