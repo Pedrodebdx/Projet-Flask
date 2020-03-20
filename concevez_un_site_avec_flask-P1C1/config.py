@@ -1,0 +1,4 @@
+FB_APP_ID = 2396776397091777
+
+SECRET_KEY = "#d#JCqTTW\nilK\\7m\x0bp#\tj~#H"
+
