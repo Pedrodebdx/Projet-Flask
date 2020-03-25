@@ -10,7 +10,8 @@ app.config.update(dict(
 ))
 app.config.from_envvar('FLASKR_SETTINGS', silent=True)
 
-
+   
+   
 @app.route('/')
 def home():
     return render_template("home.html")
