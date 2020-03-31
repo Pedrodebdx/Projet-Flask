@@ -25,15 +25,14 @@ def text_box():
     #création de la collection 'titles'
     mycol = mydb["users"]
     #insertion des données
-    
-    if data['pseudo'] == mycol.find({ "_id": pseudo }) :
-        return render_template("erreur.html")
-    else:
-        x = mycol.insert_one(data)
+    resultat = mydb.users.find({'_id': pseudo})
+    for i in resultat:
+        if i['_id'] == pseudo: 
+            return render_template("erreur.html")
+        else:
+            x = mycol.insert_one(data)
 
-    return render_template("bienvenue.html", data= data)
-
-
+        return render_template("bienvenue.html", data= data)
 
 if __name__ == '__main__':
     app.run()
