@@ -5,7 +5,7 @@
       <link rel ="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
     </head>
     <body>
-      <h1> Bonjour {{ data.prenom }} {{ data.nom }} et votre pseudo est {{ data.pseudo }}</h1>
+      <h1> Bonjour {{ prenom }} {{ nom }} vous avez {{ age }} ans, et vous êtes un {{ sexe }}</h1>
       <a href="{{ url_for('home') }}"> Retourner à la page d'accueil </a>
     </body>
 </html>
