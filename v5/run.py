@@ -4,6 +4,30 @@ import pymongo
 
 app = Flask(__name__)
 
+@app.route('/affichage_bdd')
+def affichage_bdd():
+    import pymongo
+    # connection à mongo 
+    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+    #création de la base de données imdb
+    mydb = myclient["flaskv5"]
+    #création de la collection 'titles'
+    mycol = mydb["users"]
+    resultat = mydb.users.find()
+
+    liste2=[]
+    for i in resultat:
+        liste2.append(i)
+
+
+    import pandas as pd
+    # create dataframe
+    df = pd.DataFrame(liste2)
+    # render dataframe as html
+    html = df.to_html()
+    return render_template("affichage_bdd.html", html=html)
+
+    
 
 @app.route('/')
 def home():
@@ -30,9 +54,18 @@ def text_box():
         if i['_id'] == pseudo: 
             return render_template("erreur.html")
         else:
-            x = mycol.insert_one(data)
+            mycol.insert_one(data)
 
-        return render_template("bienvenue.html", data= data)
+    return render_template("bienvenue.html", data= data)
+
+
+
 
 if __name__ == '__main__':
     app.run()
+
+
+
+
+
+
