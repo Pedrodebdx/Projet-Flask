@@ -59,7 +59,16 @@ def text_box():
     return render_template("bienvenue.html", data= data)
 
 
+### non fonctionel 
+@app.route('/upload', methods = ['GET', 'POST'])
+def upload_file():
+   if request.method == 'POST':
+      f = request.files['file']
+      df = pd.read_csv(f)
+      desc = df.describe()
+      return render_template('statistics.html', tables = [desc.to_html(classes = 'data')], titles = desc.columns.values)
 
+    return render_template("upload.html")
 
 if __name__ == '__main__':
     app.run()
